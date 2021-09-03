@@ -1,6 +1,6 @@
 import IconButton from '@material-ui/core/IconButton';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
-import {withStyles} from '@material-ui/core/styles';
+import withStyles from '@material-ui/styles/withStyles';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import CloseIcon from '@material-ui/icons/Close';
 import ErrorIcon from '@material-ui/icons/Error';
@@ -65,7 +65,7 @@ function SnackbarContentWrapper(props) {
                     color="inherit"
                     className={classes.closeButton}
                     onClick={onClose}
-                >
+                    size="large">
                     <CloseIcon className={classes.icon} />
                 </IconButton>,
             ]}

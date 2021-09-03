@@ -1,6 +1,6 @@
 import Snackbar from '@material-ui/core/Snackbar';
 import Typography from '@material-ui/core/Typography';
-import {withStyles} from '@material-ui/core/styles';
+import withStyles from '@material-ui/styles/withStyles';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import clsx from 'clsx';

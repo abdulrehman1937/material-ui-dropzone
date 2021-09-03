@@ -18,7 +18,7 @@ var PropTypes = _interopDefault(require('prop-types'));
 var React = require('react');
 var Snackbar = _interopDefault(require('@material-ui/core/Snackbar'));
 var Typography = _interopDefault(require('@material-ui/core/Typography'));
-var styles$3 = require('@material-ui/core/styles');
+var withStyles = _interopDefault(require('@material-ui/styles/withStyles'));
 var AttachFileIcon = _interopDefault(require('@material-ui/icons/AttachFile'));
 var CloudUploadIcon = _interopDefault(require('@material-ui/icons/CloudUpload'));
 var clsx = _interopDefault(require('clsx'));
@@ -230,7 +230,7 @@ process.env.NODE_ENV !== "production" ? PreviewList.propTypes = {
   showFileNames: PropTypes.bool,
   useChipsForPreview: PropTypes.bool
 } : void 0;
-var PreviewList$1 = styles$3.withStyles(styles, {
+var PreviewList$1 = withStyles(styles, {
   name: 'MuiDropzonePreviewList'
 })(PreviewList);
 
@@ -293,7 +293,8 @@ function SnackbarContentWrapper(props) {
       "aria-label": "Close",
       color: "inherit",
       className: classes.closeButton,
-      onClick: onClose
+      onClick: onClose,
+      size: "large"
     }, /*#__PURE__*/React.createElement(CloseIcon, {
       className: classes.icon
     }))]
@@ -307,7 +308,7 @@ process.env.NODE_ENV !== "production" ? SnackbarContentWrapper.propTypes = {
   onClose: PropTypes.func,
   variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired
 } : void 0;
-var SnackbarContentWrapper$1 = styles$3.withStyles(styles$1, {
+var SnackbarContentWrapper$1 = withStyles(styles$1, {
   name: 'MuiDropzoneSnackbar'
 })(SnackbarContentWrapper);
 
@@ -924,7 +925,7 @@ process.env.NODE_ENV !== "production" ? DropzoneAreaBase.propTypes = {
    */
   onAlert: PropTypes.func
 } : void 0;
-var DropzoneAreaBase$1 = styles$3.withStyles(styles$2, {
+var DropzoneAreaBase$1 = withStyles(styles$2, {
   name: 'MuiDropzoneArea'
 })(DropzoneAreaBase);
 
