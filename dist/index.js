@@ -16,29 +16,23 @@ var _getPrototypeOf = _interopDefault(require('@babel/runtime/helpers/getPrototy
 var _objectWithoutProperties = _interopDefault(require('@babel/runtime/helpers/objectWithoutProperties'));
 var PropTypes = _interopDefault(require('prop-types'));
 var React = require('react');
-var Snackbar = _interopDefault(require('@material-ui/core/Snackbar'));
-var Typography = _interopDefault(require('@material-ui/core/Typography'));
-var withStyles = _interopDefault(require('@material-ui/styles/withStyles'));
-var AttachFileIcon = _interopDefault(require('@material-ui/icons/AttachFile'));
-var CloudUploadIcon = _interopDefault(require('@material-ui/icons/CloudUpload'));
+var Snackbar = _interopDefault(require('@mui/material/Snackbar'));
+var Typography = _interopDefault(require('@mui/material/Typography'));
+var styles$2 = require('@mui/styles');
+var AttachFileIcon = _interopDefault(require('@mui/icons-material/AttachFile'));
+var CloudUploadIcon = _interopDefault(require('@mui/icons-material/CloudUpload'));
+var Alert = _interopDefault(require('@mui/material/Alert'));
 var clsx = _interopDefault(require('clsx'));
 var Dropzone = _interopDefault(require('react-dropzone'));
-var Chip = _interopDefault(require('@material-ui/core/Chip'));
-var Fab = _interopDefault(require('@material-ui/core/Fab'));
-var Grid = _interopDefault(require('@material-ui/core/Grid'));
-var DeleteIcon = _interopDefault(require('@material-ui/icons/Delete'));
-var IconButton = _interopDefault(require('@material-ui/core/IconButton'));
-var SnackbarContent = _interopDefault(require('@material-ui/core/SnackbarContent'));
-var CheckCircleIcon = _interopDefault(require('@material-ui/icons/CheckCircle'));
-var CloseIcon = _interopDefault(require('@material-ui/icons/Close'));
-var ErrorIcon = _interopDefault(require('@material-ui/icons/Error'));
-var InfoIcon = _interopDefault(require('@material-ui/icons/Info'));
-var WarningIcon = _interopDefault(require('@material-ui/icons/Warning'));
-var Button = _interopDefault(require('@material-ui/core/Button'));
-var Dialog = _interopDefault(require('@material-ui/core/Dialog'));
-var DialogActions = _interopDefault(require('@material-ui/core/DialogActions'));
-var DialogContent = _interopDefault(require('@material-ui/core/DialogContent'));
-var DialogTitle = _interopDefault(require('@material-ui/core/DialogTitle'));
+var Chip = _interopDefault(require('@mui/material/Chip'));
+var Fab = _interopDefault(require('@mui/material/Fab'));
+var Grid = _interopDefault(require('@mui/material/Grid'));
+var DeleteIcon = _interopDefault(require('@mui/icons-material/Delete'));
+var Button = _interopDefault(require('@mui/material/Button'));
+var Dialog = _interopDefault(require('@mui/material/Dialog'));
+var DialogActions = _interopDefault(require('@mui/material/DialogActions'));
+var DialogContent = _interopDefault(require('@mui/material/DialogContent'));
+var DialogTitle = _interopDefault(require('@mui/material/DialogTitle'));
 
 function isImage(file) {
   if (file.type.split('/')[0] === 'image') {
@@ -230,93 +224,15 @@ process.env.NODE_ENV !== "production" ? PreviewList.propTypes = {
   showFileNames: PropTypes.bool,
   useChipsForPreview: PropTypes.bool
 } : void 0;
-var PreviewList$1 = withStyles(styles, {
+var PreviewList$1 = styles$2.withStyles(styles, {
   name: 'MuiDropzonePreviewList'
 })(PreviewList);
-
-var variantIcon = {
-  success: CheckCircleIcon,
-  warning: WarningIcon,
-  error: ErrorIcon,
-  info: InfoIcon
-};
-
-var styles$1 = function styles(theme) {
-  return {
-    successAlert: {
-      backgroundColor: theme.palette.success.main
-    },
-    errorAlert: {
-      backgroundColor: theme.palette.error.main
-    },
-    infoAlert: {
-      backgroundColor: theme.palette.info.main
-    },
-    warningAlert: {
-      backgroundColor: theme.palette.warning.main
-    },
-    message: {
-      display: 'flex',
-      alignItems: 'center',
-      '& > svg': {
-        marginRight: theme.spacing(1)
-      }
-    },
-    icon: {
-      fontSize: 20,
-      opacity: 0.9
-    },
-    closeButton: {}
-  };
-};
-
-function SnackbarContentWrapper(props) {
-  var classes = props.classes,
-      className = props.className,
-      message = props.message,
-      onClose = props.onClose,
-      variant = props.variant,
-      other = _objectWithoutProperties(props, ["classes", "className", "message", "onClose", "variant"]);
-
-  var Icon = variantIcon[variant];
-  return /*#__PURE__*/React.createElement(SnackbarContent, _extends({
-    className: clsx(classes["".concat(variant, "Alert")], className),
-    "aria-describedby": "client-snackbar",
-    message: /*#__PURE__*/React.createElement("span", {
-      id: "client-snackbar",
-      className: classes.message
-    }, /*#__PURE__*/React.createElement(Icon, {
-      className: classes.icon
-    }), message),
-    action: [/*#__PURE__*/React.createElement(IconButton, {
-      key: "close",
-      "aria-label": "Close",
-      color: "inherit",
-      className: classes.closeButton,
-      onClick: onClose,
-      size: "large"
-    }, /*#__PURE__*/React.createElement(CloseIcon, {
-      className: classes.icon
-    }))]
-  }, other));
-}
-
-process.env.NODE_ENV !== "production" ? SnackbarContentWrapper.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  message: PropTypes.node,
-  onClose: PropTypes.func,
-  variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired
-} : void 0;
-var SnackbarContentWrapper$1 = withStyles(styles$1, {
-  name: 'MuiDropzoneSnackbar'
-})(SnackbarContentWrapper);
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-var styles$2 = function styles(_ref) {
+var styles$1 = function styles(_ref) {
   var palette = _ref.palette,
       shape = _ref.shape,
       spacing = _ref.spacing;
@@ -669,11 +585,10 @@ var DropzoneAreaBase = /*#__PURE__*/function (_React$PureComponent) {
       }, alertSnackbarProps, {
         open: openSnackBar,
         onClose: this.handleCloseSnackbar
-      }), /*#__PURE__*/React.createElement(SnackbarContentWrapper$1, {
-        onClose: this.handleCloseSnackbar,
-        variant: snackbarVariant,
-        message: snackbarMessage
-      })));
+      }), /*#__PURE__*/React.createElement(Alert, {
+        severity: snackbarVariant,
+        onClose: this.handleCloseSnackbar
+      }, snackbarMessage)));
     }
   }]);
 
@@ -925,7 +840,7 @@ process.env.NODE_ENV !== "production" ? DropzoneAreaBase.propTypes = {
    */
   onAlert: PropTypes.func
 } : void 0;
-var DropzoneAreaBase$1 = withStyles(styles$2, {
+var DropzoneAreaBase$1 = styles$2.withStyles(styles$1, {
   name: 'MuiDropzoneArea'
 })(DropzoneAreaBase);
 
@@ -1263,10 +1178,8 @@ var DropzoneDialogBase = /*#__PURE__*/function (_React$PureComponent) {
         onClose: onClose,
         open: open
       }), /*#__PURE__*/React.createElement(DialogTitle, null, dialogTitle), /*#__PURE__*/React.createElement(DialogContent, null, /*#__PURE__*/React.createElement(DropzoneAreaBase$1, dropzoneAreaProps)), /*#__PURE__*/React.createElement(DialogActions, null, /*#__PURE__*/React.createElement(Button, {
-        color: "primary",
         onClick: onClose
       }, cancelButtonText), /*#__PURE__*/React.createElement(Button, {
-        color: "primary",
         disabled: submitDisabled,
         onClick: onSave
       }, submitButtonText)));
